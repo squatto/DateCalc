@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dateCalc">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>DateCalc</title>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/moment/moment.js"></script>
+
+    <script src="app.js"></script>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <style>
+        dd {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div ng-controller="dateCalcController as dateCalc">
+
+    <div class="container">
+        <h2>DateCalc</h2>
+
+        <div class="row">
+            <div class="col-sm-4 col-md-3">
+
+                <fieldset>
+                    <legend>Minus 30/60/90</legend>
+
+                    <div class="form-group">
+                        <label>From</label>
+                        <input type="date" ng-model="dateCalc.minus_date" class="form-control">
+                    </div>
+
+                    <dl>
+                        <dt>-30 Days</dt>
+                        <dd>{{ dateCalc.sub(30) }}</dd>
+
+                        <dt>-60 Days</dt>
+                        <dd>{{ dateCalc.sub(60) }}</dd>
+
+                        <dt>-90 Days</dt>
+                        <dd>{{ dateCalc.sub(90) }}</dd>
+
+                        <dt>Previous Wednesday</dt>
+                        <dd>{{ dateCalc.lastWednesday() }}</dd>
+
+                        <dt>-5 Sundays</dt>
+                        <dd>{{ dateCalc.fiveSundaysAgo() }}</dd>
+                    </dl>
+                </fieldset>
+            </div>
+
+            <div class="col-sm-4 col-md-3">
+
+                <fieldset>
+                    <legend>Number of Days</legend>
+
+                    <div class="form-group">
+                        <label>From</label>
+                        <input type="date" ng-model="dateCalc.from_date" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>To</label>
+                        <input type="date" ng-model="dateCalc.to_date" class="form-control">
+                    </div>
+
+                    <dl>
+                        <dt># Days</dt>
+                        <dd>{{ dateCalc.numberOfDays() }}</dd>
+
+                        <dt># Months</dt>
+                        <dd>{{ dateCalc.numberOfMonths() }}</dd>
+                    </dl>
+                </fieldset>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
