@@ -3,10 +3,10 @@ angular.module('dateCalc', [])
         var format = 'MM/DD/YYYY';
 
         // subtractions
-        this.minus_date = new Date(moment().format(format));
+        this.minus_date = moment().toDate();
 
         this.sub_base = function() {
-            return moment(this.minus_date, format);
+            return moment(this.minus_date);
         }
 
         this.sub = function (days) {
@@ -22,11 +22,11 @@ angular.module('dateCalc', [])
         }
 
         // number of days
-        this.from_date = new Date(moment().subtract(30, 'days').format(format));
-        this.to_date = new Date(moment().format(format));
+        this.from_date = moment().subtract(30, 'days').toDate();
+        this.to_date = moment().toDate();
 
         this.numberOfDays = function() {
-            return moment(this.to_date, format).diff(moment(this.from_date, format), 'days');
+            return moment(this.to_date).diff(moment(this.from_date), 'days');
         }
 
         this.numberOfMonths = function() {
