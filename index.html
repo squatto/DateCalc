@@ -49,18 +49,11 @@
 
                         <dt>-90 Days</dt>
                         <dd>{{ dateCalc.sub(90) }}</dd>
-
-                        <dt>Previous Wednesday</dt>
-                        <dd>{{ dateCalc.lastWednesday() }}</dd>
-
-                        <dt>-5 Sundays</dt>
-                        <dd>{{ dateCalc.fiveSundaysAgo() }}</dd>
                     </dl>
                 </fieldset>
             </div>
 
             <div class="col-sm-4 col-md-3">
-
                 <fieldset>
                     <legend>Number of Days</legend>
 
@@ -82,7 +75,27 @@
                         <dd>{{ dateCalc.numberOfMonths() }}</dd>
                     </dl>
                 </fieldset>
+            </div>
+        </div>
 
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-4 col-md-3">
+                <dt>Previous Wednesday</dt>
+                <dd>{{ dateCalc.lastWednesday() }}</dd>
+
+                <dt>-5 Sundays</dt>
+                <dd>{{ dateCalc.fiveSundaysAgo() }}</dd>
+            </div>
+
+            <div class="col-sm-4 col-md-3">
+                <div class="well">
+                    <input type="text" class="form-control" onfocus="$(this).select()"
+                           value="=IF(I4&gt;$K$2,&quot;BLACK&quot;,&quot;&quot;)"/>
+                    <input type="text" class="form-control" onfocus="$(this).select()"
+                           value="=IF(I4=&quot;&quot;,&quot;&quot;,IF(I4&lt;$L$2,&quot;BLUE&quot;,&quot;&quot;))"/>
+                </div>
             </div>
         </div>
     </div>
